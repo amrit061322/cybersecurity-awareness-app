@@ -1,0 +1,29 @@
+# Node
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.err
+.npm-cache/
+backend/uploads/
+
+# Env
+.env
+.env.*
+
+# Vite
+frontend/dist/
+frontend/.vite/
+
+# OS / Office temp
+.DS_Store
+Thumbs.db
+~$*
+
+# IDE
+.vscode/
+.idea/
+.vercel
