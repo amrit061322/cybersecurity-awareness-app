@@ -1,16 +1,20 @@
 const getAwarenessLevel = (percentage) => {
   const value = Math.max(0, Math.min(100, Number(percentage || 0)));
+  const tiers = [
+    { min: 0, max: 9, level: 1, name: 'Vulnerable' },
+    { min: 10, max: 19, level: 2, name: 'Novice Defender' },
+    { min: 20, max: 29, level: 3, name: 'Aware Starter' },
+    { min: 30, max: 39, level: 4, name: 'Risk Recogniser' },
+    { min: 40, max: 49, level: 5, name: 'Security Learner' },
+    { min: 50, max: 59, level: 6, name: 'Practical Protector' },
+    { min: 60, max: 69, level: 7, name: 'Threat Spotter' },
+    { min: 70, max: 79, level: 8, name: 'Security Aware' },
+    { min: 80, max: 89, level: 9, name: 'Cyber Smart' },
+    { min: 90, max: 100, level: 10, name: 'Cyber Guardian' }
+  ];
 
-  if (value < 10) return 'Level 1 (0-9%)';
-  if (value < 20) return 'Level 2 (10-19%)';
-  if (value < 30) return 'Level 3 (20-29%)';
-  if (value < 40) return 'Level 4 (30-39%)';
-  if (value < 50) return 'Level 5 (40-49%)';
-  if (value < 60) return 'Level 6 (50-59%)';
-  if (value < 70) return 'Level 7 (60-69%)';
-  if (value < 80) return 'Level 8 (70-79%)';
-  if (value < 90) return 'Level 9 (80-89%)';
-  return 'Level 10 (90-100%)';
+  const selected = tiers.find((tier) => value >= tier.min && value <= tier.max) || tiers[0];
+  return `Level ${selected.level} - ${selected.name} (${selected.min}-${selected.max}%)`;
 };
 
 module.exports = { getAwarenessLevel };
